@@ -180,12 +180,15 @@ footer a{color:var(--ink2)}
 .pack .nm{font-size:15px; font-weight:700; line-height:1.5}
 .pack p{margin:0; font-size:14px; color:var(--ink2)}
 .pack p b{color:var(--ink)}
+.buys{display:flex; flex-wrap:wrap; gap:8px}
 .pack a.buy{
-  display:inline-block; align-self:flex-start; text-decoration:none;
+  display:inline-block; text-decoration:none;
   font-size:13.5px; font-weight:700; padding:8px 14px; border-radius:7px;
   background:var(--ink); color:var(--surface);
 }
+.pack a.buy.az{background:transparent; color:var(--ink); border:1px solid var(--ink)}
 .pack .adlabel{font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; color:var(--ink3)}
+.pack .nofound{font-size:13px; color:var(--ink2); background:var(--raise); border:1px dashed var(--line2); border-radius:7px; padding:10px 12px; margin:0}
 .src{font-size:12px; color:var(--ink3)}
 .src a{color:var(--ink2)}
 .empty{background:var(--surface); border:1px dashed var(--line2); border-radius:10px; padding:20px; color:var(--ink2); font-size:14px}
@@ -290,8 +293,60 @@ function rakutenLink(word){
   return (RAKUTEN_AF + encodeURIComponent(u)).replace(/&/g, "&amp;");
 }
 
+/* Amazon の紹介リンク。提携が通るまで AMAZON_AF は空のまま。
+   空のあいだは通常のAmazonリンクとして動き、提携が通ったら1行入れるだけで
+   ページ中のAmazonリンクがすべてアフィリエイトリンクに変わる。 */
+var AMAZON_AF = "";
+function amazonLink(asin){
+  var u = "https://www.amazon.co.jp/dp/" + asin;
+  return AMAZON_AF ? (AMAZON_AF + encodeURIComponent(u)).replace(/&/g, "&amp;") : u;
+}
+function amazonSearch(word){
+  var u = "https://www.amazon.co.jp/s?k=" + encodeURIComponent(word);
+  return (AMAZON_AF ? (AMAZON_AF + encodeURIComponent(u)) : u).replace(/&/g, "&amp;");
+}
+
+/* 型番 → Amazonで「ブランドがメーカー本体」になっている商品。
+   2026-09-29 に33型番すべてを実地で確認した。
+   null は「Amazonに純正品が無く、互換品しか出てこない」型番。 */
+var AZ = {
+  "AMC-HC12":{a:"B01FETXOFO", n:"Amazonでは6枚入パッケージ（型番 AMC-HAC12）。ブランドはパナソニック純正"},
+  "AMC-NC6":{a:"B01CE9KW3Y", n:"5枚入×3個セット"},
+  "AMC-S5":{a:"B07PGDQ3M8", n:"5枚入×5セット"},
+  "AMC-NK5":{a:"B000JNBTB2"},
+  "AMC-K5":{a:"B000JNDXQG"},
+  "AMC-U2":{a:"B077SNQQ7Z", n:"10枚入×5個セット"},
+  "PHC-PA1KD":{a:"B000JNBD5Y"},
+  "PHC-PA2KD":{a:"B000JNBTE4"},
+  "GP-2000FS":{a:"B000Y33438", n:"3枚入"},
+  "GP-130FS":{a:"B000WLKFZM", n:"3枚入"},
+  "GP-110F":{a:"B0000C91QU", n:"5枚入"},
+  "GP-75F":{a:"B0002LHROE"},
+  "GP-S120FS":{a:"B0BMVHS828", n:"6枚入・吸込口用シール付き"},
+  "GP-S35F":{a:"B0000C91XU", n:"5枚入"},
+  "VPF-7":null,
+  "VPF-6":{a:"B087Z9MFQN", n:"×2個セット"},
+  "VPF-5":{a:"B087YNDRPH", n:"×2個セット"},
+  "VPF-11":{a:"B0000C96MK"},
+  "VPF-12":{a:"B0FXF1FJYL", n:"5枚入"},
+  "VPF-31":{a:"B0GK6WR11J"},
+  "MP-9A":{a:"B0DJPWF4ZZ", n:"三菱電機の公式出品・2個セット"},
+  "MP-7A":{a:"B0DJPXRGQY", n:"三菱電機の公式出品・2個セット"},
+  "MP-3A":{a:"B0DJMF5SL7", n:"三菱電機の公式出品・2個セット"},
+  "MP-2":null,
+  "MP-30":null,
+  "MP-25":{a:"B0000C944B", n:"10枚入"},
+  "MP-STC1-5P":null,
+  "EC-330PN":{a:"B0CPXST7ZT"},
+  "EC-530PN":{a:"B0HCZP7MGH"},
+  "EC-17PN":{a:"B01N6EXFYX"},
+  "EC-16PN":{a:"B000WLH7HQ"},
+  "EC-06PS":{a:"B072S8C7S9"},
+  "A-48511":{a:"B001B6ELUW"}
+};
+
 var SHOPS = [
-  { name:"Amazon",  base:"", note:"純正品は「メーカー名 + 型番」で検索すると確実です。" },
+  { name:"Amazon",  base:amazonSearch("掃除機 紙パック 純正"), note:"判定結果のカードから、その型番の純正品の商品ページへ直接行けます。" },
   { name:"楽天市場", base:rakutenLink("掃除機 紙パック 純正"), note:"判定結果の型番で探すのが確実です。上の結果カードにも、型番ごとの検索リンクを付けています。" }
 ];
 
@@ -439,14 +494,19 @@ var esc = function(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;
 function packCard(no, extra){
   var d = P[no];
   if (!d) return '';
+  var az = AZ[no];
   return '<div class="pack">' +
     '<span class="no">' + esc(no) + '</span>' +
     '<span class="nm">' + esc(d.nm) + (d.pcs ? '（' + esc(d.pcs) + '）' : '') + '</span>' +
     (d.note ? '<p>' + d.note + '</p>' : '') +
     (extra ? '<p>' + extra + '</p>' : '') +
     '<span class="src">出典：<a href="' + d.src + '" target="_blank" rel="noopener">' + esc(d.m) + ' 公式</a></span>' +
-    '<a class="buy" href="' + rakutenLink(no) + '" rel="sponsored nofollow noopener" target="_blank">楽天市場で「' + esc(no) + '」を探す</a>' +
-    '<span class="adlabel">広告 / PR　※純正品かどうかは商品ページの型番でご確認ください</span>' +
+    '<div class="buys">' +
+      '<a class="buy" href="' + rakutenLink(no) + '" rel="sponsored nofollow noopener" target="_blank">楽天市場で「' + esc(no) + '」を探す</a>' +
+      (az ? '<a class="buy az" href="' + amazonLink(az.a) + '" rel="sponsored nofollow noopener" target="_blank">Amazonで純正品を見る</a>' : '') +
+    '</div>' +
+    '<span class="adlabel">広告 / PR' + (az && az.n ? '　Amazonの掲載：' + esc(az.n) : '') + '</span>' +
+    (az ? '' : '<p class="nofound">Amazonでは<b>この型番の純正品が見つかりませんでした</b>（検索しても互換品ばかり出てきます）。楽天市場か、メーカーの公式ショップで探してください。</p>') +
     '</div>';
 }
 
@@ -541,7 +601,9 @@ $("foot").innerHTML =
   '<b>このページで判定に使っていない純正型番</b>：東芝 <b>VPF-6</b>（公式に対応機種の列挙がありません）／シャープ <b>EC-06PS</b>（公式一覧で「販売終了」）。存在はするので、取扱説明書に指定があればそちらに従ってください。<br><br>' +
   'このページに載せている型番・対応・注意文は、すべて各メーカーの公式サイトまたは公式の取扱説明書の記載に基づいています。各項目の出典リンクから原文を確認できます。<br>' +
   '<b>公式に書かれていないことは書いていません。</b>メーカーが対応機種を公開していない場合は、その旨をそのまま書いています。<br>' +
-  '型番や取り扱いは変わることがあります。購入前に、お使いの機種の取扱説明書とメーカー公式ページで最終確認してください。<br>' +
+  '型番や取り扱いは変わることがあります。購入前に、お使いの機種の取扱説明書とメーカー公式ページで最終確認してください。<br><br>' +
+  '<b>Amazonのリンクについて</b>：33型番すべてをAmazonで実地に確認し、<b>商品ページの「ブランド」がメーカー本体になっているもの（＝純正）だけ</b>にリンクしています。検索結果の上位はほとんどが互換品なので、検索ではなく商品ページへ直接ご案内しています。' +
+  '<b>VPF-7・MP-2・MP-30・MP-STC1-5P の4型番は、Amazonに純正品が見当たりませんでした。</b>その4つにはAmazonのリンクを置いていません。<br>' +
   (unset ? '<span style="color:var(--warn)">※ 現在このページの紹介リンクは ' + unset + ' 件が未設定です。</span>' : '');
 
 ["maker","q2"].forEach(function(g){
