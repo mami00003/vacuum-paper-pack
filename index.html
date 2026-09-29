@@ -180,6 +180,12 @@ footer a{color:var(--ink2)}
 .pack .nm{font-size:15px; font-weight:700; line-height:1.5}
 .pack p{margin:0; font-size:14px; color:var(--ink2)}
 .pack p b{color:var(--ink)}
+.pack a.buy{
+  display:inline-block; align-self:flex-start; text-decoration:none;
+  font-size:13.5px; font-weight:700; padding:8px 14px; border-radius:7px;
+  background:var(--ink); color:var(--surface);
+}
+.pack .adlabel{font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; color:var(--ink3)}
 .src{font-size:12px; color:var(--ink3)}
 .src a{color:var(--ink2)}
 .empty{background:var(--surface); border:1px dashed var(--line2); border-radius:10px; padding:20px; color:var(--ink2); font-size:14px}
@@ -276,9 +282,17 @@ input[type=text]{
    base を空のままにすると「リンク未設定」と表示され、リンクは出ません。
    もしもアフィリエイト等で取得したリンクの、型番を差し込む前の部分を入れてください。
 ---------------------------------------------------------------- */
+/* 楽天市場の紹介リンク（もしもアフィリエイト経由）。
+   型番を入れると、その型番の検索結果ページへ飛ぶリンクを作る。 */
+var RAKUTEN_AF = "https://af.moshimo.com/af/c/click?a_id=5821705&p_id=54&pc_id=54&pl_id=616&url=";
+function rakutenLink(word){
+  var u = "https://search.rakuten.co.jp/search/mall/" + encodeURIComponent(word) + "/";
+  return (RAKUTEN_AF + encodeURIComponent(u)).replace(/&/g, "&amp;");
+}
+
 var SHOPS = [
   { name:"Amazon",  base:"", note:"純正品は「メーカー名 + 型番」で検索すると確実です。" },
-  { name:"楽天市場", base:"", note:"1商品あたりの報酬に上限があるぶん、店舗数が多いのが利点です。" }
+  { name:"楽天市場", base:rakutenLink("掃除機 紙パック 純正"), note:"判定結果の型番で探すのが確実です。上の結果カードにも、型番ごとの検索リンクを付けています。" }
 ];
 
 /* ---------------- 紙パックの辞書（すべて公式ページの記載） ---------------- */
@@ -431,6 +445,8 @@ function packCard(no, extra){
     (d.note ? '<p>' + d.note + '</p>' : '') +
     (extra ? '<p>' + extra + '</p>' : '') +
     '<span class="src">出典：<a href="' + d.src + '" target="_blank" rel="noopener">' + esc(d.m) + ' 公式</a></span>' +
+    '<a class="buy" href="' + rakutenLink(no) + '" rel="sponsored nofollow noopener" target="_blank">楽天市場で「' + esc(no) + '」を探す</a>' +
+    '<span class="adlabel">広告 / PR　※純正品かどうかは商品ページの型番でご確認ください</span>' +
     '</div>';
 }
 
