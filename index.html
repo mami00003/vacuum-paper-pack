@@ -209,7 +209,22 @@ input[type=text]{
 .old td:first-child{font-family:var(--mono); color:var(--ink2); word-break:break-word}
 .old td:last-child{font-family:var(--mono); font-weight:700; color:var(--accent); white-space:nowrap}
 .wrap{overflow-x:auto}
+.old th[scope=row]{font-family:var(--mono); font-weight:700; color:var(--accent); white-space:nowrap; font-size:13px; letter-spacing:0}
+.old.list td:first-child,.old.list td:last-child{font-family:inherit; color:inherit; font-weight:400; white-space:normal}
+.old .buycell{white-space:nowrap}
+.old .buycell a{color:var(--ink); font-weight:700}
+.old .na{color:var(--ink3)}
+.old small{color:var(--ink3); font-size:12px}
+.makerblocks{display:flex; flex-direction:column; gap:16px; margin-top:16px}
+.makerblock{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:16px 18px}
+.makerblock h3{font-size:15px; font-weight:700; margin:0 0 6px}
+.makerblock p.how{margin:0 0 8px; font-size:14px; color:var(--ink2)}
+.makerblock ul{margin:0; padding-left:18px; font-size:14px; color:var(--ink2); line-height:1.9}
+.makerblock code{font-family:var(--mono); font-weight:700; color:var(--accent)}
+.makerblock small{color:var(--ink3); font-size:12.5px}
+.stamp{font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:var(--ink3)}
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"掃除機の紙パックは互換品でも大丈夫ですか？","acceptedAnswer":{"@type":"Answer","text":"メーカー6社（パナソニック・日立・東芝・三菱電機・シャープ・マキタ）と業界団体の日本電機工業会は、いずれも公式に純正品の使用を求めています。5社は「純正以外を使うとモーターが発煙・発火するおそれがある」と明記し、シャープは「純正品以外の消耗品の使用に起因する不具合は、保証期間内であっても有償」と明記しています。一方で、非純正の紙パックが原因で起きた事故の公的な統計は見つかりませんでした。"}},{"@type":"Question","name":"自分の掃除機に合う紙パックの型番はどうやって調べますか？","acceptedAnswer":{"@type":"Answer","text":"メーカーごとに決まり方が違います。パナソニックは機種ではなく紙パックの形状（M型Vタイプ／LM型Vタイプ／S型）で決まります。日立はキャニスター／スティック／こまめちゃんの3分類です。三菱電機は「横形専用」で、使えない機種のほうを公式が列挙しています。シャープは一部が機種列挙で残りは「ヨコ型（紙袋式）全機種」です。マキタは紙パック式の充電クリーナが対象です。東芝だけが機種型番を大量に列挙しています。"}},{"@type":"Question","name":"機種型番から紙パック型番を引く一覧表は作れますか？","acceptedAnswer":{"@type":"Answer","text":"公式情報だけでは作れません。6社のうち機種を大量に列挙しているのは東芝だけで、他の5社は機種別の対応表を公開していないからです。そのため、機種型番を入れると紙パック型番が出る表を掲げているサイトは、どこかで推測が混ざっている可能性があります。"}},{"@type":"Question","name":"純正の紙パックにはどんな型番がありますか？","acceptedAnswer":{"@type":"Answer","text":"このページでは、6社の公式サイトに記載がある純正紙パック33型番をすべて掲載しています。パナソニック8種、日立6種、東芝6種、三菱電機7種、シャープ5種、マキタ1種です。すべてに公式ページへの出典リンクを付けています。"}},{"@type":"Question","name":"廃番になった紙パックの代わりは何を買えばいいですか？","acceptedAnswer":{"@type":"Answer","text":"メーカーが公式に「置き換え」「同仕様」と書いているものだけを11行の表にまとめています。出典はパナソニック、三菱電機、シャープの公式ページです。日立・東芝・マキタは公式に置き換え関係の記載が見つかりませんでした。"}},{"@type":"Question","name":"Amazonで純正の紙パックを見分けるにはどうすればいいですか？","acceptedAnswer":{"@type":"Answer","text":"商品ページの詳細表にある「ブランド」の欄がメーカー本体（パナソニック、日立、東芝、三菱電機、シャープ、マキタ）になっているかを見てください。タイトルに「純正」「公式」と書かれていても、ブランド欄が「ノーブランド品」になっている商品があります。"}}]},{"@type":"WebPage","name":"掃除機の紙パック、結局どれを買えばいいのか","description":"パナソニック・日立・東芝・三菱電機・シャープ・マキタの純正紙パック33型番を、公式サイトの記載だけで引ける一覧。","inLanguage":"ja","dateModified":"2026-09-30","citation":["https://kadenfan.hitachi.co.jp/support/clean/q_a/a18.html","https://ec-plus.panasonic.jp/store/page/consumables/paperpack/","https://www.mitsubishielectric.co.jp/home/cleaner/product/parts/index.html","https://faq-toshiba-lifestyle.dga.jp/answer.html?id=389&category=123&page=1","https://www.makita.co.jp/product/files/881A67F1_D4398.pdf","https://jp.sharp/support/cleaner/option/","https://jema-net.or.jp/Japanese/ha/soujiki/pack.html"]}]}</script>
 </head>
 <body>
 
@@ -257,25 +272,133 @@ input[type=text]{
   <div class="wrap">
     <table class="old">
       <thead><tr><th>いま探している型番（廃番・旧品）</th><th>メーカー</th><th>今これを買う</th></tr></thead>
-      <tbody id="oldbody"></tbody>
+      <tbody id="oldbody">
+        <tr><td>AMC-HC10</td><td>パナソニック</td><td>AMC-HC12</td></tr>
+        <tr><td>AMC-HC11</td><td>パナソニック</td><td>AMC-HC12</td></tr>
+        <tr><td>AMC-DS2 / AMC-NS2 / AMC-NC2 / AMC-NC5 / AMC-S2</td><td>パナソニック</td><td>AMC-NC6<br>AMC-S5</td></tr>
+        <tr><td>AMC-DP1 / AMC-DP2 / AMC-P1 / AMC-NP1 / AMC-NP2 / AMC-NK2 / AMC-K2</td><td>パナソニック</td><td>AMC-NK5<br>AMC-K5</td></tr>
+        <tr><td>AMC-PU1 / AMC-U1</td><td>パナソニック</td><td>AMC-U2</td></tr>
+        <tr><td>PHC-PA1 / PHC-PA1K / PHC-PA1N / PHC-PA1KN</td><td>パナソニック</td><td>PHC-PA1KD</td></tr>
+        <tr><td>PHC-PA2 / PHC-PA2K / PHC-PA2N / PHC-PA2KN</td><td>パナソニック</td><td>PHC-PA2KD</td></tr>
+        <tr><td>MP-9</td><td>三菱電機</td><td>MP-9A</td></tr>
+        <tr><td>MP-7</td><td>三菱電機</td><td>MP-7A</td></tr>
+        <tr><td>MP-3</td><td>三菱電機</td><td>MP-3A</td></tr>
+        <tr><td>EC-15P / EC-15PN / EC-06PN / EC-05P / EC-05PN</td><td>シャープ</td><td>EC-17PN</td></tr>
+      </tbody>
     </table>
   </div>
-  <p class="src" id="oldsrc"></p>
+  <p class="src" id="oldsrc">出典：<a href="https://ec-plus.panasonic.jp/store/page/consumables/paperpack/" target="_blank" rel="noopener">パナソニック</a>／<a href="https://www.mitsubishielectric.co.jp/home/cleaner/product/parts/index.html" target="_blank" rel="noopener">三菱電機</a>／<a href="https://jp.sharp/support/cleaner/option/" target="_blank" rel="noopener">シャープ</a>。日立・東芝・マキタは公式に置き換え関係の記載が見つかりませんでした。</p>
 </section>
 
 <section>
   <h2 id="official">互換品は使っていいのか — メーカー6社と業界団体の公式回答</h2>
   <p class="lede">検索でいちばん多いのがこの疑問なので、各社の公式ページにある文をそのまま引きます。要約も言い換えもしていません。</p>
-  <div class="quotes" id="quotes"></div>
+  <div class="quotes" id="quotes">
+    <div class="quote"><div class="who">日立グローバルライフソリューションズ</div><blockquote>「当社純正以外の紙パックを使用した場合、クリーナーの性能・品質が保証できないばかりか、モーターに負荷がかかり発煙・発火が発生するおそれがあります。」</blockquote><span class="src"><a href="https://kadenfan.hitachi.co.jp/support/clean/q_a/a18.html" target="_blank" rel="noopener">出典</a></span></div>
+    <div class="quote"><div class="who">パナソニック</div><blockquote>「純正以外の紙パックを使用したときは、本体内にゴミがもれ、発煙・発火の恐れがあります」</blockquote><span class="src"><a href="https://ec-plus.panasonic.jp/store/page/consumables/paperpack/" target="_blank" rel="noopener">出典</a></span></div>
+    <div class="quote"><div class="who">三菱電機</div><blockquote>「掃除機の紙パックは機能部品です。三菱電機の掃除機には必ず三菱電機製の純正紙パックをご使用ください。純正以外の紙パックを使用した場合、モーターが発煙・発火するおそれがあります。純正以外の紙パックを使用した場合、紙パックに関する掃除機の性能・品質は保証できません。」</blockquote><span class="src"><a href="https://www.mitsubishielectric.co.jp/home/cleaner/product/parts/index.html" target="_blank" rel="noopener">出典</a></span></div>
+    <div class="quote"><div class="who">東芝ライフスタイル</div><blockquote>「「純正」紙パック以外の紙パックを使うと、モーターの発煙･発火の恐れがあります。また、吸い込みが悪くなったり、台紙の形が合わなかったりしたときは、ゴミが漏れる原因になることもあります。紙パックの大きさや形状は、各メーカーのクリーナーの仕様に合わせて作られています。紙パックはクリーナーの機能を維持する部品ですので、ご使用のクリーナーメーカー指定の「純正」紙パックをおすすめします。」</blockquote><span class="src"><a href="https://faq-toshiba-lifestyle.dga.jp/answer.html?id=389&category=123&page=1" target="_blank" rel="noopener">出典</a></span></div>
+    <div class="quote"><div class="who">マキタ</div><blockquote>「クリーナの紙パックは、本機性能を維持するための大切な機能部品です。そのため、純正以外の紙パックを使用した場合はモータの発煙、発火する恐れがあります。」</blockquote><span class="src"><a href="https://www.makita.co.jp/product/files/881A67F1_D4398.pdf" target="_blank" rel="noopener">出典</a></span></div>
+    <div class="quote"><div class="who">シャープ</div><blockquote>「純正品以外の別売オプション品・消耗品のご使用に起因する不具合については、製品の保証期間内であっても有償となりますので、ご注意ください。」</blockquote><span class="src"><a href="https://jp.sharp/support/cleaner/option/" target="_blank" rel="noopener">出典</a></span></div>
+    <div class="quote"><div class="who">一般社団法人 日本電機工業会（JEMA）</div><blockquote>「紙パックの大きさや形状は、各掃除機の仕様に合わせて作られています」</blockquote><span class="src"><a href="https://jema-net.or.jp/Japanese/ha/soujiki/pack.html" target="_blank" rel="noopener">出典</a></span></div>
+  </div>
+</section>
+
+
+<section>
+  <h2 id="list">純正紙パック 全33型番の一覧</h2>
+  <p class="lede">6社の公式サイトに記載がある純正紙パックを、すべて並べました。上のツールを使わずにここから直接探せます。</p>
+  <div class="wrap">
+    <table class="old list">
+      <thead><tr><th>純正型番</th><th>メーカー</th><th>名称・枚数</th><th>出典</th><th>探す</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">AMC-HC12</th><td>パナソニック</td><td>消臭・抗菌加工「逃がさんパック」（M型Vタイプ）（3枚入）</td><td><a href="https://ec-plus.panasonic.jp/store/page/consumables/paperpack/" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAMC-HC12%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B01FETXOFO" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">AMC-NC6</th><td>パナソニック</td><td>逃がさんパック（M型Vタイプ）（5枚入）</td><td><a href="https://ec-plus.panasonic.jp/store/page/consumables/paperpack/" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAMC-NC6%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B01CE9KW3Y" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">AMC-S5</th><td>パナソニック</td><td>紙パック（M型Vタイプ）（5枚入）</td><td><a href="https://ec-plus.panasonic.jp/store/page/consumables/paperpack/" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAMC-S5%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B07PGDQ3M8" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">AMC-NK5</th><td>パナソニック</td><td>逃がさんパック（LM型Vタイプ）（5枚入）<br><small>公式に<b>「口芯を切り取ればM型としても使用可能」</b>と記載があります。</small></td><td><a href="https://ec-plus.panasonic.jp/store/page/consumables/paperpack/" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAMC-NK5%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B000JNBTB2" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">AMC-K5</th><td>パナソニック</td><td>紙パック（LM型Vタイプ）（5枚入）<br><small>公式に<b>「口芯を切り取ればM型としても使用可能」</b>と記載があります。</small></td><td><a href="https://ec-plus.panasonic.jp/store/page/consumables/paperpack/" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAMC-K5%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B000JNDXQG" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">AMC-U2</th><td>パナソニック</td><td>紙パック（S型）（10枚入）</td><td><a href="https://ec-plus.panasonic.jp/store/page/consumables/paperpack/" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAMC-U2%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B077SNQQ7Z" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">PHC-PA1KD</th><td>パナソニック</td><td>ハンドクリーナー用 紙パック（12枚入）</td><td><a href="https://ec-plus.panasonic.jp/store/page/consumables/paperpack/" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FPHC-PA1KD%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B000JNBD5Y" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">PHC-PA2KD</th><td>パナソニック</td><td>ハンドクリーナー用 紙パック（12枚入）</td><td><a href="https://ec-plus.panasonic.jp/store/page/consumables/paperpack/" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FPHC-PA2KD%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B000JNBTE4" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">GP-2000FS</th><td>日立</td><td>［こぼさんパック］ナノテク 高捕じんプレミアム衛生フィルター</td><td><a href="https://kadenfan.hitachi.co.jp/support/clean/q_a/a54.html" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FGP-2000FS%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B000Y33438" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">GP-130FS</th><td>日立</td><td>［こぼさんパック］ナノテク プレミアム衛生フィルター</td><td><a href="https://kadenfan.hitachi.co.jp/support/clean/q_a/a54.html" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FGP-130FS%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B000WLKFZM" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">GP-110F</th><td>日立</td><td>抗菌防臭3種・3層HEパックフィルター</td><td><a href="https://kadenfan.hitachi.co.jp/support/clean/q_a/a54.html" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FGP-110F%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B0000C91QU" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">GP-75F</th><td>日立</td><td>抗菌防臭3層クリーンパックフィルター</td><td><a href="https://kadenfan.hitachi.co.jp/support/clean/q_a/a54.html" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FGP-75F%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B0002LHROE" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">GP-S120FS</th><td>日立</td><td>抗菌3層パックフィルター（スティック用）<br><small>同じページに<b>GP-S35F は使用できない</b>旨の記載があります。</small></td><td><a href="https://kadenfan.hitachi.co.jp/clean/lineup/pkv-bk3k/feature02.html" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FGP-S120FS%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B0BMVHS828" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">GP-S35F</th><td>日立</td><td>抗菌3層パックフィルター（こまめちゃん用）</td><td><a href="https://kadenfan.hitachi.co.jp/support/clean/q_a/a54.html" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FGP-S35F%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B0000C91XU" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">VPF-7</th><td>東芝</td><td>新3層構造紙パック</td><td><a href="https://faq-toshiba-lifestyle.dga.jp/answer.html?id=388&category=123&page=1" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FVPF-7%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <span class="na">Amazonに純正なし</span></td></tr>
+        <tr><th scope="row">VPF-6</th><td>東芝</td><td>2層構造＋防臭加工紙パック<br><small>公式に対応機種の列挙がありません。</small></td><td><a href="https://faq-toshiba-lifestyle.dga.jp/answer.html?id=388&category=123&page=1" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FVPF-6%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B087Z9MFQN" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">VPF-5</th><td>東芝</td><td>3層構造紙パック</td><td><a href="https://faq-toshiba-lifestyle.dga.jp/answer.html?category=123&page=1&id=1020" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FVPF-5%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B087YNDRPH" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">VPF-11</th><td>東芝</td><td>指定機種用 紙パック<br><small>対応機種が VPF-12 と大きく重なりますが、<b>公式に「VPF-12 への置き換え」とは書かれていません</b>。</small></td><td><a href="https://faq-toshiba-lifestyle.dga.jp/answer.html?id=388&category=123&page=1" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FVPF-11%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B0000C96MK" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">VPF-12</th><td>東芝</td><td>掃除機 紙パックセット</td><td><a href="https://shop.toshiba-lifestyle.com/jp/shop/g/g41457217/" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FVPF-12%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B0FXF1FJYL" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">VPF-31</th><td>東芝</td><td>掃除機 紙パックセット</td><td><a href="https://shop.toshiba-lifestyle.com/jp/shop/g/g41457216/" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FVPF-31%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B0GK6WR11J" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">MP-9A</th><td>三菱電機</td><td>備長炭配合 炭紙パック（3枚入）<br><small>公式に<b>「旧別売部品MP-9と同仕様の紙パックです」</b>と記載。</small></td><td><a href="https://www.mitsubishielectric.co.jp/home/cleaner/product/parts/index.html" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FMP-9A%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B0DJPWF4ZZ" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">MP-7A</th><td>三菱電機</td><td>アレルパンチ抗菌消臭クリーン紙パック（3枚入）<br><small>公式に<b>「旧別売部品MP-7と同仕様の紙パックです」</b>と記載。</small></td><td><a href="https://www.mitsubishielectric.co.jp/home/cleaner/product/parts/index.html" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FMP-7A%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B0DJPXRGQY" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">MP-3A</th><td>三菱電機</td><td>抗菌消臭クリーン紙パック（3枚入）<br><small>公式に<b>「旧別売部品MP-3と同仕様の紙パックです」</b>と記載。</small></td><td><a href="https://www.mitsubishielectric.co.jp/home/cleaner/product/parts/index.html" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FMP-3A%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B0DJMF5SL7" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">MP-2</th><td>三菱電機</td><td>紙パック（5枚入）<br><small>公式一覧で<b>「在庫僅少」</b>の表記があります。</small></td><td><a href="https://www.mitsubishielectric.co.jp/home/cleaner/product/parts/index.html" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FMP-2%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <span class="na">Amazonに純正なし</span></td></tr>
+        <tr><th scope="row">MP-30</th><td>三菱電機</td><td>消臭クリーン紙パック（10枚入）<br><small>TC-NS／TC-AR 専用。公式注記に<b>「TC-AE/TC-AF/TC-AGタイプにも装着可能です」</b>。</small></td><td><a href="https://www.mitsubishielectric.co.jp/home/cleaner/product/parts/index.html" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FMP-30%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <span class="na">Amazonに純正なし</span></td></tr>
+        <tr><th scope="row">MP-25</th><td>三菱電機</td><td>抗菌紙パック（ハンディ・スティック用）（10枚入）</td><td><a href="https://www.mitsubishielectric.co.jp/home/cleaner/product/parts/index.html" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FMP-25%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B0000C944B" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">MP-STC1-5P</th><td>三菱電機</td><td>アレルパンチ抗菌炭消臭クリーン紙パック（5枚入）<br><small>コードレススティック <b>HC-JK2E 専用</b>。</small></td><td><a href="https://www.mitsubishielectric.co.jp/home/cleaner/product/parts/index.html" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FMP-STC1-5P%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <span class="na">Amazonに純正なし</span></td></tr>
+        <tr><th scope="row">EC-330PN</th><td>シャープ</td><td>抗菌3層紙袋（5枚入）</td><td><a href="https://jp.sharp/support/cleaner/option/" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FEC-330PN%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B0CPXST7ZT" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">EC-530PN</th><td>シャープ</td><td>抗菌3層紙袋（5枚入）</td><td><a href="https://jp.sharp/support/cleaner/option/" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FEC-530PN%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B0HCZP7MGH" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">EC-17PN</th><td>シャープ</td><td>抗菌5層紙袋（高捕集タイプ）（5枚入）<br><small>公式に<b>「紙袋型番EC-15P / 15PN / 06PN / 05P / 05PNの紙袋使用の機種でもご使用いただけます」</b>と記載。</small></td><td><a href="https://jp.sharp/support/cleaner/option/" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FEC-17PN%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B01N6EXFYX" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">EC-16PN</th><td>シャープ</td><td>抗菌3層紙袋（5枚入）</td><td><a href="https://jp.sharp/support/cleaner/option/" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FEC-16PN%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B000WLH7HQ" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">EC-06PS</th><td>シャープ</td><td>3層紙袋（5枚入）<br><small>公式一覧で<b>「販売終了」</b>の表示があります。</small></td><td><a href="https://jp.sharp/support/cleaner/option/" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FEC-06PS%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B072S8C7S9" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+        <tr><th scope="row">A-48511</th><td>マキタ</td><td>抗菌紙パック（10枚入）<br><small>公式の取扱説明書で確認できたのは <b>CL107FD</b> と <b>4076DW</b> の2機種です。他機種は取扱説明書の別販売品欄で確認してください。</small></td><td><a href="https://www.makita.co.jp/product/files/881A67F1_D4398.pdf" target="_blank" rel="noopener">公式</a></td><td class="buycell"><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FA-48511%2F" rel="sponsored nofollow noopener" target="_blank">楽天</a> ／ <a href="https://www.amazon.co.jp/dp/B001B6ELUW" rel="sponsored nofollow noopener" target="_blank">Amazon</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="src">「探す」の楽天・Amazonは広告（アフィリエイトリンク）です。Amazonは<b>商品ページのブランド欄がメーカー本体になっている商品</b>だけにリンクしています。</p>
+</section>
+
+<section>
+  <h2 id="rules">メーカー別 — 適合の決まり方</h2>
+  <p class="lede">「機種型番を入れれば紙パック型番が出る」という表は、公式情報だけでは作れません。6社のうち機種を大量に列挙しているのは東芝だけだからです。各社が公式に示している決まり方をそのまま書きます。</p>
+  <div class="makerblocks">
+      <div class="makerblock"><h3>パナソニック</h3><p class="how">パナソニックは<b>掃除機の機種ではなく、紙パックの形状で適合が決まります</b>。いま入っている紙パックの形か、取扱説明書の指定型番で選んでください。</p><ul><li><b>M型Vタイプ</b> → <code>AMC-HC12</code> / <code>AMC-NC6</code> / <code>AMC-S5</code></li>
+        <li><b>LM型Vタイプ</b> → <code>AMC-NK5</code> / <code>AMC-K5</code></li>
+        <li><b>S型</b> → <code>AMC-U2</code></li>
+        <li><b>ハンドクリーナー用</b> → <code>PHC-PA1KD</code> / <code>PHC-PA2KD</code></li></ul></div>
+      <div class="makerblock"><h3>日立</h3><p class="how">日立は<b>掃除機の種類で決まります</b>。キャニスター（CV-で始まる機種）は4種類のどれでも使え、ちがいは集じん性能と価格です。</p><ul><li><b>キャニスター（CV-）</b> → <code>GP-2000FS</code> / <code>GP-130FS</code> / <code>GP-110F</code> / <code>GP-75F</code><br><small>公式の逐語：<b>「パックフィルターは、GP-2000FS・GP-130FS・GP-110F・GP-75Fがご使用いただけます。」</b> 上から順に集じん性能が高く、価格も高くなります。</small></li>
+        <li><b>スティック（PKV-）</b> → <code>GP-S120FS</code></li>
+        <li><b>こまめちゃん</b> → <code>GP-S35F</code></li></ul></div>
+      <div class="makerblock"><h3>東芝</h3><p class="how">東芝は<b>機種型番から引けます</b>。本体の底面や背面のシールにある「VC-」から始まる型番を入れてください。</p><p>掃除機の機種型番を入力して引きます。公式FAQが列挙している機種は下の一覧にすべて載せています。</p></div>
+      <div class="makerblock"><h3>三菱電機</h3><p class="how">三菱電機は<b>掃除機の形で決まります</b>。横形（キャニスター）は3種類のどれでも使え、ちがいは消臭・抗菌の仕様です。</p><ul><li><b>横形（キャニスター）</b> → <code>MP-9A</code> / <code>MP-7A</code> / <code>MP-3A</code> / <code>MP-2</code><br><small>公式は対応機種を列挙せず、<b>使えない機種のほうを挙げています</b>。次の機種には使えません：TC-NS、AR、970JP、960P、950、951、300、301、310P、311P、350J、355JP。<br>TC-NS／TC-AR には <b>MP-30</b> を使います（公式注記で TC-AE／TC-AF／TC-AG タイプにも装着可能）。</small></li>
+        <li><b>TC-NS / TC-AR</b> → <code>MP-30</code></li>
+        <li><b>ハンディ・スティック</b> → <code>MP-25</code><br><small>公式が列挙している対応機種：HC-P1、HC-P2、HC-P10、HC-P30、HC-A1、HC-A2、HC-A3、HC-A5、HC-B30、HC-B70、HC-BA70、HC-BA30、HC-BB70、HC-BB30、HC-BC70、HC-BC30</small></li>
+        <li><b>コードレススティック HC-JK2E</b> → <code>MP-STC1-5P</code></li></ul></div>
+      <div class="makerblock"><h3>シャープ</h3><p class="how">シャープは<b>機種が分かれば型番で、分からなければ「ヨコ型（紙袋式）全機種」用</b>から選べます。</p><ul><li><b>EC-CR1 / XR3 / XR2 / XR1 / WR2 / KR3 / KR2 / KR1</b> → <code>EC-330PN</code></li>
+        <li><b>EC-KR70A / KR50A</b> → <code>EC-530PN</code></li>
+        <li><b>ヨコ型（紙袋式）・機種が分からない</b> → <code>EC-17PN</code> / <code>EC-16PN</code><br><small>どちらも公式に<b>「シャープヨコ型タイプ掃除機（紙袋式）全機種」</b>用と書かれています。EC-17PN は5層で捕集性能が高く、EC-16PN は3層です。</small></li></ul></div>
+      <div class="makerblock"><h3>マキタ</h3><p class="how">マキタは<b>充電式クリーナの紙パック式モデル</b>が対象です。カプセル式のモデル（CL280FD など）には紙パックがありません。</p><ul><li><b>CL107FD / 4076DW</b> → <code>A-48511</code></li></ul></div>
+  </div>
+</section>
+
+<section>
+  <h2 id="toshiba">東芝 — 機種型番から引く（公式FAQ掲載の94機種）</h2>
+  <p class="lede">東芝だけは公式FAQが機種を列挙しています。その内容をそのまま載せます。<code>VC-</code> から始まる型番は、頭の <code>VC-</code> を外した形で載っている場合があります。</p>
+  <div class="wrap">
+    <table class="old">
+      <thead><tr><th>紙パック型番</th><th>対応機種（公式FAQの記載どおり）</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">VPF-7</th><td>VC-Y1P、VC-PS300X、VC-20TP、VC-PG316、VC-KA31Q、VC-Y3GP、VC-PG310X、VC-V10D、VC-S300EX、VC-PG312S、VC-PG312、VC-PG311、VC-200XE6、VC-P200D、VC-P100X、VC-10TP、VC-ST1、VC-PG314、VC-PG313、VC-PG210E7、VC-PG210、VC-V9D、VC-S200EX、VC-P217E4、VC-PG212E9、VC-PG212、VC-PG211E8、VC-PG211、VC-95XE5、VC-ST2、VC-PX9D、VC-PW9D、VC-95VE3、VC-P214E2、VC-P213E1、VC-P213、VC-V8F、VC-S100EX、VC-PF9、VC-PC9、VC-PB9、VC-PA9、VC-PZ9D、VC-85XE5、VC-PX8F、VC-PW8F、VC-85VE3、VC-PD9、VC-PY8F、VC-PZJ8</td></tr>
+        <tr><th scope="row">VPF-12</th><td>VC-CLZ74DS、VC-SL140DS、VC-SL130DS、VC-Z20P、VC-Z20K、VC-Z2、VC-Y10R、VC-Z30KT、VC-Y11T、VC-Y11R、VC-ZY25K、VC-Z57R、VC-Z12L、VC-Z11L、VC-Z10L、VC-Z56R、VC-Z15L、VC-HA1</td></tr>
+        <tr><th scope="row">VPF-31</th><td>VC-JPS1、VC-CLP54、VC-P400Z</td></tr>
+        <tr><th scope="row">VPF-5</th><td>VC-PH9、VC-PJ9、VC-PK9、VC-PL9、VC-PH7A、VC-PJ7A、VC-PK7A、VC-PL7A、VC-PH65A、VC-BKJ9</td></tr>
+        <tr><th scope="row">VPF-11</th><td>Z2シリーズ、Z30KT、ZY25K、Z10L、Z11L、Z12L、Z15L、HA1、Z55R、Z56R、Z57R、Y10R、Y11</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="src">出典：<a href="https://faq-toshiba-lifestyle.dga.jp/answer.html?id=388&amp;category=123&amp;page=1" target="_blank" rel="noopener">東芝ライフスタイル 公式FAQ</a>。<code>VC-Z10L</code> のように VPF-11 と VPF-12 の両方に載っている機種があります。公式に「置き換え」とは書かれていないため、両方そのまま載せています。</p>
 </section>
 
 <section>
   <h2>純正品を買う</h2>
   <p class="lede">上で出た型番をそのまま探せます。値段は時期で変わるので、複数の店を見てから決めてください。</p>
-  <div class="tools" id="shops"></div>
+  <div class="tools" id="shops"><div class="tool"><h3>Amazon</h3><p>判定結果のカードから、その型番の純正品の商品ページへ直接行けます。上の一覧からも行けます。</p><a href="https://www.amazon.co.jp/s?k=%E6%8E%83%E9%99%A4%E6%A9%9F%20%E7%B4%99%E3%83%91%E3%83%83%E3%82%AF%20%E7%B4%94%E6%AD%A3" rel="sponsored nofollow noopener" target="_blank">Amazonで探す</a></div><div class="tool"><h3>楽天市場</h3><p>判定結果の型番で探すのが確実です。上の一覧からも型番ごとに飛べます。</p><a href="https://af.moshimo.com/af/c/click?a_id=5821705&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E6%258E%2583%25E9%2599%25A4%25E6%25A9%259F%2520%25E7%25B4%2599%25E3%2583%2591%25E3%2583%2583%25E3%2582%25AF%2520%25E7%25B4%2594%25E6%25AD%25A3%2F" rel="sponsored nofollow noopener" target="_blank">楽天市場で探す</a></div></div>
 </section>
 
-<footer id="foot"></footer>
+<footer id="foot"><b>このページで判定に使っていない純正型番</b>：東芝 <b>VPF-6</b>（公式に対応機種の列挙がありません）／シャープ <b>EC-06PS</b>（公式一覧で「販売終了」）。存在はするので、取扱説明書に指定があればそちらに従ってください。<br><br>このページに載せている型番・対応・注意文は、すべて各メーカーの公式サイトまたは公式の取扱説明書の記載に基づいています。各項目の出典リンクから原文を確認できます。<br><b>公式に書かれていないことは書いていません。</b>メーカーが対応機種を公開していない場合は、その旨をそのまま書いています。<br>型番や取り扱いは変わることがあります。購入前に、お使いの機種の取扱説明書とメーカー公式ページで最終確認してください。<br><br><b>Amazonのリンクについて</b>：33型番すべてをAmazonで実地に確認し、<b>商品ページの「ブランド」がメーカー本体になっているもの（＝純正）だけ</b>にリンクしています。検索結果の上位はほとんどが互換品なので、検索ではなく商品ページへ直接ご案内しています。<b>VPF-7・MP-2・MP-30・MP-STC1-5P の4型番は、Amazonに純正品が見当たりませんでした。</b>その4つにはAmazonのリンクを置いていません。<br><span class="stamp">最終確認：2026年9月30日</span></footer>
 
 </div>
 
@@ -573,38 +696,9 @@ function render(){
   $("res").innerHTML = html;
 }
 
-/* 静的パーツ */
-$("oldbody").innerHTML = OLD.map(function(r){
-  return '<tr><td>' + esc(r[0]) + '</td><td>' + esc(r[1]) + '</td><td>' + r[2].map(esc).join('<br>') + '</td></tr>';
-}).join('');
-$("oldsrc").innerHTML = '出典：<a href="https://ec-plus.panasonic.jp/store/page/consumables/paperpack/" target="_blank" rel="noopener">パナソニック</a>／<a href="https://www.mitsubishielectric.co.jp/home/cleaner/product/parts/index.html" target="_blank" rel="noopener">三菱電機</a>／<a href="https://jp.sharp/support/cleaner/option/" target="_blank" rel="noopener">シャープ</a>。日立・東芝・マキタは公式に置き換え関係の記載が見つかりませんでした。';
 
-$("quotes").innerHTML = QUOTES.map(function(q){
-  return '<div class="quote"><div class="who">' + esc(q.who) + '</div>' +
-    '<blockquote>「' + esc(q.t) + '」</blockquote>' +
-    '<span class="src"><a href="' + q.u + '" target="_blank" rel="noopener">出典</a></span></div>';
-}).join('');
 
-var unset = 0;
-$("shops").innerHTML = SHOPS.map(function(s){
-  var live = s.base && s.base.length > 0;
-  if (!live) unset++;
-  return '<div class="tool">' +
-    (live ? '' : '<span class="todo">リンク未設定</span>') +
-    '<h3>' + esc(s.name) + '</h3><p>' + esc(s.note) + '</p>' +
-    (live ? '<a href="' + s.base + '" rel="sponsored nofollow noopener" target="_blank">' + esc(s.name) + 'で探す</a>'
-          : '<span class="cta">紹介リンクを設定してください</span>') +
-    '</div>';
-}).join('');
 
-$("foot").innerHTML =
-  '<b>このページで判定に使っていない純正型番</b>：東芝 <b>VPF-6</b>（公式に対応機種の列挙がありません）／シャープ <b>EC-06PS</b>（公式一覧で「販売終了」）。存在はするので、取扱説明書に指定があればそちらに従ってください。<br><br>' +
-  'このページに載せている型番・対応・注意文は、すべて各メーカーの公式サイトまたは公式の取扱説明書の記載に基づいています。各項目の出典リンクから原文を確認できます。<br>' +
-  '<b>公式に書かれていないことは書いていません。</b>メーカーが対応機種を公開していない場合は、その旨をそのまま書いています。<br>' +
-  '型番や取り扱いは変わることがあります。購入前に、お使いの機種の取扱説明書とメーカー公式ページで最終確認してください。<br><br>' +
-  '<b>Amazonのリンクについて</b>：33型番すべてをAmazonで実地に確認し、<b>商品ページの「ブランド」がメーカー本体になっているもの（＝純正）だけ</b>にリンクしています。検索結果の上位はほとんどが互換品なので、検索ではなく商品ページへ直接ご案内しています。' +
-  '<b>VPF-7・MP-2・MP-30・MP-STC1-5P の4型番は、Amazonに純正品が見当たりませんでした。</b>その4つにはAmazonのリンクを置いていません。<br>' +
-  (unset ? '<span style="color:var(--warn)">※ 現在このページの紹介リンクは ' + unset + ' 件が未設定です。</span>' : '');
 
 ["maker","q2"].forEach(function(g){
   $(g).addEventListener("click", function(ev){
