@@ -1,0 +1,48 @@
+name: Threads 自動投稿
+
+on:
+  schedule:
+    # 毎日 19:00 JST（= 10:00 UTC）に1本。GitHubの都合で数分ずれることがあります。
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: '投稿せずに内容だけ確認する'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: threads-post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 投稿
+        env:
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+        run: node threads/post.mjs
+
+      - name: 送信済みの記録をコミット
+        if: ${{ !inputs.dry_run }}
+        run: |
+          if git diff --quiet -- threads/state.json; then
+            echo "変更なし"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add threads/state.json
+          git commit -m "Threads: 投稿を記録"
+          git push
